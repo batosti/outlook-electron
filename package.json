@@ -1,0 +1,67 @@
+{
+  "name": "outlook-electron",
+  "version": "1.0.0",
+  "description": "Outlook Electron Client",
+  "main": "app/index.js",
+  "author": {
+    "name": "André Batosti",
+    "email": "batosti@gmail.com",
+    "url": "https://github.com/batosti/"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ./app",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.12.0"
+  },
+  "build": {
+    "appId": "outlook-electron",
+    "files": [
+      "app/**/**",
+      "build/**/**",
+      "node_modules/**/**",
+      "package.json"
+    ],
+    "protocols": {
+      "name": "mailto",
+      "schemes": [
+        "mailto"
+      ]
+    },
+    "linux": {
+      "category": "Chat;Network",
+      "packageCategory": "net",
+      "executableName": "outlook-electron",
+      "synopsis": "Outlook Electron Client",
+      "description": "Unofficial Outlook client for Linux using Electron and OWA",
+      "desktop": {
+        "Name": "Outlook Electron Client",
+        "Comment": "Unofficial Outlook client",
+        "StartupWMClass": "outlook-electron"
+      },
+      "target": [
+        "deb",
+        "snap"
+      ]
+    },
+    "snap": {
+      "summary": "Outlook Electron Client",
+      "confinement": "strict",
+      "grade": "stable",
+      "base": "core22",
+      "plugs": [
+        "default"
+      ],
+      "publish": [
+        "snapStore"
+      ]
+    }
+  },
+  "dependencies": {
+    "electron-context-menu": "^3.6.1"
+  }
+}
