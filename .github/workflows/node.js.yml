@@ -1,0 +1,30 @@
+name: Outlook Electron CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    environment: snap
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - name: build and upload to snap
+      run: |
+        sudo snap install snapcraft --classic
+        export SNAPCRAFT_STORE_CREDENTIALS=$(echo ${{secrets.SNAP_LOGIN}})
+        npm run publish
