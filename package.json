@@ -11,7 +11,7 @@
   "license": "MIT",
   "scripts": {
     "start": "electron ./app",
-    "pack": "electron-builder --dir",
+    "pack": "electron-builder --linux snap -p always",
     "dist": "electron-builder"
   },
   "devDependencies": {

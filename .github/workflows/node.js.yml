@@ -27,4 +27,4 @@ jobs:
       run: |
         sudo snap install snapcraft --classic
         export SNAPCRAFT_STORE_CREDENTIALS=$(echo ${{secrets.SNAP_LOGIN}})
-        npm run publish
+        npm run pack
