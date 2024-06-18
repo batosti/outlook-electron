@@ -50,7 +50,7 @@ async function onAppReady() {
 
 function processArgs(args) {
 	var regHttps = /^https:\/\/outlook\.office\.com\/.*/g;
-	var regMailTo = /^mailto:\/.*/g;
+	var regMailTo = /^mailto:.*/g;
 	for (const arg of args) {
 		if (regHttps.test(arg)) {
 			return arg;
@@ -69,7 +69,7 @@ function onAppSecondInstance(event, args) {
 		if (url) {
 			allowFurtherRequests = false;
 			setTimeout(() => { allowFurtherRequests = true; }, 5000);
-			window.loadURL(url, { userAgent: config.chromeUserAgent });
+			window.loadURL(url);
 		}
 
     window.focus();
