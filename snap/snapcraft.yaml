@@ -1,0 +1,16 @@
+name: outlook-electron
+base: core22
+version: '1.0.1'
+summary: Outlook Electron Client
+description: |
+  Unofficial Outlook client for Linux using Electron and OWA
+
+grade: stable
+confinement: strict
+
+parts:
+  my-part:
+    npm-include-node: true
+    npm-node-version: "20.14.0"
+    plugin: npm
+    source: .
