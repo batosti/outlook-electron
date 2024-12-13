@@ -88,7 +88,7 @@ function handleCalendarReminders() {
     // this should be more than enough time to log in into outlook
     setTimeout(() => {
         window.webContents.executeJavaScript(calendarReminderCode);
-    }, (10*1000));
+    }, eightMins);
 }
 
 /**
