@@ -23,3 +23,9 @@ They will generate `.deb` and `snap` packages
 ## Support this project
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/batosti)
+
+## Version history
+
+1.0.0 - Initial version
+1.0.1 - Bug fixies
+1.0.2 - Notification for meetings. (Thanks to [Guy Keller](https://github.com/guy-keller))
