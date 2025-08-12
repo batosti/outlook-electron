@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "electron ./app",
+    "start": "electron ./app --inspect",
     "pack": "electron-builder --linux snap -p always",
     "dist": "electron-builder"
   },
