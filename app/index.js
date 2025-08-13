@@ -114,7 +114,6 @@ function displayOutlookPopup() {
         height: 100,
         show: false,
         modal: false,
-        parent: window,
         resizable: false,
         autoHideMenuBar: true,
         webPreferences: {
@@ -123,7 +122,8 @@ function displayOutlookPopup() {
         }
     });
 
-    popupWindow.loadFile("assets/notification-reminder.html");
+    const notificationReminderHtmlPath = path.join(__dirname, 'assets', 'notification-reminder.html');
+    popupWindow.loadFile(notificationReminderHtmlPath);
     popupWindow.once("ready-to-show", () => {
         popupWindow.show();
     });
