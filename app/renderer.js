@@ -13,8 +13,8 @@ function handleMutation(mutation) {
     // console.log("Mutation: ", mutation);
     if (!reminderShowing) {
         reminderShowing = true;
-        window.electronAPI.showNotification();
-        window.electronAPI.showPopup();
+        window.electronAPI.showOutlookNotification();
+        window.electronAPI.showOutlookPopup();
         resetReminderFlag();
     }
 }

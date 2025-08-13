@@ -25,6 +25,7 @@ if (!appLock) {
 function onAppReady() {
     initialise();
     createWindow();
+    handleCalendarReminders();
 }
 
 function initialise() {
@@ -67,7 +68,7 @@ function onNewWindow(details) {
 
 function createWindow() {
     window = new BrowserWindow({
-        icon: path.join(__dirname, "assets/icons/icon-96x96.png"),
+        icon: path.join(__dirname, "assets/icons/96x96.png"),
         autoHideMenuBar: true,
         webPreferences: {
             preload: path.join(__dirname, "preload.js")
@@ -78,10 +79,6 @@ function createWindow() {
 
     // window.webContents.openDevTools();
     window.webContents.setWindowOpenHandler(onNewWindow);
-
-    window.webContents.on("dom-ready", () => {
-        handleCalendarReminders();
-    });
 }
 
 function handleCalendarReminders() {
@@ -90,16 +87,19 @@ function handleCalendarReminders() {
 }
 
 function handleCalendarNotifications() {
-    ipcMain.handle("show-notification", () => {
-        displayNotification();
-    });
-
-    ipcMain.handle("show-popup", () => {
-        displayPopup()
-    });
+    if (!ipcMain.listenerCount("show-outlook-notification")) {
+        ipcMain.handle("show-outlook-notification", () => {
+            displayOutlookNotification();
+        });
+    }
+    if (!ipcMain.listenerCount("show-outlook-popup")) {
+        ipcMain.handle("show-outlook-popup", () => {
+            displayOutlookPopup()
+        });
+    }
 }
 
-function displayNotification() {
+function displayOutlookNotification() {
     const notification = new Notification({
         title: "Outlook Calendar Reminder",
         subtitle: "Outlook Electron",
@@ -108,7 +108,7 @@ function displayNotification() {
     notification.show();
 }
 
-function displayPopup() {
+function displayOutlookPopup() {
     const popupWindow = new BrowserWindow({
         width: 250,
         height: 100,
