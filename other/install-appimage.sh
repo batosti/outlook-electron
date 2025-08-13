@@ -1,23 +1,24 @@
 #!/bin/bash
 
 # Creating outlook-electron install directory
-rm -rfv ~/.local/share/apps/outlook-electron
-mkdir -pv ~/.local/share/apps/outlook-electron
+sudo rm -rfv /opt/outlook-electron
+sudo mkdir -pv /opt/outlook-electron
+sudo chmod a+rw /opt/outlook-electron
 
 # Changing to it and downloading AppImage
-cd ~/.local/share/apps/outlook-electron
+cd /opt/outlook-electron
 wget https://github.com/guy-keller/outlook-electron/releases/download/1.1.0/outlook-electron-1.1.0.AppImage
-chmod +x outlook-electron-1.1.0.AppImage
-
-# Downloads icon file and bash script that runs the app
 wget https://raw.githubusercontent.com/guy-keller/outlook-electron/refs/heads/main/other/outlook-electron.png
 wget https://raw.githubusercontent.com/guy-keller/outlook-electron/refs/heads/main/other/outlook-electron.sh
+
+# Making the AppImage and sh runnable
+chmod +x outlook-electron-1.1.0.AppImage
 chmod +x outlook-electron.sh
 
 # Downloads the desktop file, so the user has a nice shortcut
-cd ~/.local/share/applications/
 wget https://raw.githubusercontent.com/guy-keller/outlook-electron/refs/heads/main/other/outlook-electron.desktop
+sudo mv -vf /opt/outlook-electron/outlook-electron.desktop /usr/share/applications
 
 # Refresh the menu, so that the app icon is displayed
-sudo update-desktop-database ~/.local/share/applications/
+sudo update-desktop-database /usr/share/applications
 sudo xdg-desktop-menu forceupdate
