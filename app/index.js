@@ -111,7 +111,7 @@ function displayOutlookNotification() {
 function displayOutlookPopup() {
     const popupWindow = new BrowserWindow({
         width: 250,
-        height: 100,
+        height: 120,
         show: false,
         modal: false,
         resizable: false,
