@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Outlook Electron Client
+Exec=/opt/outlook-electron/outlook-electron.sh
+Icon=/opt/outlook-electron/outlook-electron.png
+Terminal=false
+Type=Application
+StartupWMClass=outlook-electron
+StartupNotify=true
+Comment=Unofficial Outlook client for Linux using Electron and OWA
+MimeType=x-scheme-handler/mailto;
+Categories=Office

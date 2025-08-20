@@ -16,6 +16,18 @@ They will generate `.deb` and `snap` packages
 
 `npm run dist`
 
+# AppImage install / uninstall
+
+One liner installer:
+```bash
+curl -s "https://raw.githubusercontent.com/guy-keller/outlook-electron/main/other/install-appimage.sh" | bash
+```
+
+Unhappy and want to uninstall?
+```bash
+curl -s "https://raw.githubusercontent.com/guy-keller/outlook-electron/main/other/uninstall-appimage.sh" | bash
+```
+
 ## Packages
 
 ![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)(https://snapcraft.io/outlook-electron)
