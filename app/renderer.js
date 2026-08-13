@@ -42,10 +42,11 @@ function checkForReminderTypeCalendar(element) {
 
 function isCalendarReminder(element) {
     if (element) {
-        const isReminder = element.hasAttribute("remindertype");
-        if (isReminder) {
-            const reminderValue = element.getAttribute("remindertype");
-            if ("Calendar" === reminderValue) {
+        const hasIdAttribute = element.hasAttribute("id");
+        if (hasIdAttribute) {
+            const reminderValue = element.getAttribute("id");
+            // when a notification is showing, the 'remindersDismissAllButtonId' is created
+            if ("remindersDismissAllButtonId" === reminderValue) {
                 return true;
             }
         }

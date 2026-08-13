@@ -16,12 +16,12 @@ sudo chmod a+rw /opt/outlook-electron
 
 # Changing to it and downloading AppImage
 cd /opt/outlook-electron
-wget https://github.com/$REPO_NAME/outlook-electron/releases/download/1.2.1/outlook-electron-1.2.1.AppImage
+wget https://github.com/$REPO_NAME/outlook-electron/releases/download/1.2.2/outlook-electron-1.2.2.AppImage
 wget https://raw.githubusercontent.com/$REPO_NAME/outlook-electron/refs/heads/main/other/outlook-electron.png
 wget https://raw.githubusercontent.com/$REPO_NAME/outlook-electron/refs/heads/main/other/outlook-electron.sh
 
 # Making the AppImage and sh runnable
-chmod +x outlook-electron-1.2.1.AppImage
+chmod +x outlook-electron-1.2.2.AppImage
 chmod +x outlook-electron.sh
 
 # Downloads the desktop file, so the user has a nice shortcut

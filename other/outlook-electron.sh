@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd /opt/outlook-electron
-./outlook-electron-1.2.0.AppImage --no-sandbox
+./outlook-electron-1.2.2.AppImage --no-sandbox
