@@ -71,7 +71,8 @@ function createWindow() {
         icon: path.join(__dirname, "assets/icons/96x96.png"),
         autoHideMenuBar: true,
         webPreferences: {
-            preload: path.join(__dirname, "preload.js")
+            preload: path.join(__dirname, "preload.js"),
+            autoplayPolicy: 'no-user-gesture-required'
         }
     });
     window.maximize();
@@ -103,7 +104,8 @@ function displayOutlookNotification() {
     const notification = new Notification({
         title: "Outlook Calendar Reminder",
         subtitle: "Outlook Electron",
-        body: "You have a calendar reminder showing on outlook."
+        body: "You have a calendar reminder showing on outlook.",
+        silent: false
     });
     notification.show();
 }
