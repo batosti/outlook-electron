@@ -49,4 +49,6 @@ curl -s "https://raw.githubusercontent.com/guy-keller/outlook-electron/main/othe
 1.0.2 - Notification for meetings. (Thanks to [Guy Keller](https://github.com/guy-keller))  
 1.1.0 - AppImage build and fixes on notification for meetings  
 1.2.0 - Fixes on notification for meetings as MS changed the DOM element  
-1.2.1 - Fixing pop-up notification, no longer uses Tailwind CDN; minimal CSS (looks good behind controlled networks)  
+1.2.1 - Fixing notification pop-up; no longer uses Tailwind CDN; minimal CSS (looks good behind controlled networks)  
+1.2.2 - Fixing notification pop-up; MS has changed the ID in the DOM element again
+1.2.3 - Improvement; plays a sound when the notification pop-up is displayed
